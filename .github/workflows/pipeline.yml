@@ -33,9 +33,13 @@ jobs:
       run: |
         npm test # ou o comando específico para rodar os seus testes
 
+    - name: Permission Gradlew
+      run: |
+       chmod +x android/gradlew
+       
     - name: Build Android APK
       run: |
-        chmod +x android/gradlew && cd android && ./gradlew assembleRelease && cd ..
+        cd android && ./gradlew assembleRelease && cd ..
 
     - name: Upload APK artifact
       uses: actions/upload-artifact@v2
