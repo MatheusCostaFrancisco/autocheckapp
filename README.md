@@ -1,1 +1,3 @@
 # autocheckapp
+
+run yarn
