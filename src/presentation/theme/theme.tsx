@@ -1,4 +1,5 @@
 import * as Font from './font';
+import * as Spacer from './spacer';
 
 import React, {useContext, useMemo} from 'react';
 
@@ -10,6 +11,17 @@ type FontSizeProps = {
   size_25: number;
   size_30: number;
   size_35: number;
+};
+
+type SpacerProps = {
+  Base_Value: number;
+  Small_Padding: number;
+  Medium_Padding: number;
+  Large_Padding: number;
+  Small_Spacing: number;
+  Medium_Spacing: number;
+  Large_Spacing: number;
+  Extra_Large_Spacing: number;
 };
 
 export type ColorProps = {
@@ -49,6 +61,7 @@ export type ColorProps = {
 export type ThemeProps = {
   colors: ColorProps;
   fontSize: FontSizeProps;
+  spacer: SpacerProps;
 };
 
 export const theme: ThemeProps = {
@@ -87,6 +100,16 @@ export const theme: ThemeProps = {
     size_30: Font.FONT_SIZE_30,
     size_35: Font.FONT_SIZE_35,
   },
+  spacer: {
+    Base_Value: Spacer.Base_Value,
+    Small_Padding: Spacer.Small_Padding,
+    Medium_Padding: Spacer.Medium_Padding,
+    Large_Padding: Spacer.Large_Padding,
+    Small_Spacing: Spacer.Small_Spacing,
+    Medium_Spacing: Spacer.Medium_Spacing,
+    Large_Spacing: Spacer.Large_Spacing,
+    Extra_Large_Spacing: Spacer.Extra_Large_Spacing,
+  },
 };
 
 interface ThemesProviderProps {
@@ -100,6 +123,7 @@ function ThemeProvider({children}: ThemesProviderProps) {
     () => ({
       colors: {...theme.colors},
       fontSize: {...theme.fontSize},
+      spacer: {...theme.spacer},
     }),
     [theme],
   );
