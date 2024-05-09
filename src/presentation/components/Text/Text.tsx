@@ -14,7 +14,7 @@ export interface HeadingsProps {
   textAlign?: TextAlignProps;
   children: React.ReactNode;
   family?: FontFamilyTypes;
-  color?: ColorProps;
+  color?: string;
   numberOfLines?: number;
 }
 
