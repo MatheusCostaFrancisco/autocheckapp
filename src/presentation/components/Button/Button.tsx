@@ -1,10 +1,9 @@
 import React from 'react';
 
-import {ActivityIndicator, Pressable, StyleSheet} from 'react-native';
+import {ActivityIndicator, Pressable, StyleSheet, View} from 'react-native';
 
 import {useTheme} from '../../theme/theme';
 import {H5} from '../Text/Text';
-import {Wrapper} from './styles';
 
 export type ButtonProps = {
   text: string;
@@ -13,7 +12,6 @@ export type ButtonProps = {
   loading?: boolean;
   disabled?: boolean;
   variant?: 'default' | 'outline';
-  rounded?: boolean;
   onLongPress?: () => void;
   onPressIn?: () => void;
   onPressOut?: () => void;
@@ -28,7 +26,6 @@ export function Button({
   onLongPress,
   onPressIn,
   onPressOut,
-  rounded = false,
   variant = 'default',
   backgroundColor,
   height,
@@ -73,6 +70,21 @@ export function Button({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    wrapper: {
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      borderRadius: spacer.Small_Padding,
+      backgroundColor: 'transparent',
+    },
+    outline: {
+      alignSelf: 'stretch',
+      justifyContent: 'center',
+      borderRadius: spacer.Small_Padding,
+      backgroundColor: 'transparent',
+      borderStyle: 'solid',
+      borderColor: backgroundColor,
+      borderWidth: 1,
+    },
   });
   // #endregion
 
@@ -86,7 +98,7 @@ export function Button({
   // #endregion
 
   return (
-    <Wrapper rounded={rounded} variant={variant} background={background}>
+    <View style={variant === 'outline' ? styles.outline : styles.wrapper}>
       <Pressable
         disabled={disable}
         onPress={onPress}
@@ -103,6 +115,6 @@ export function Button({
           <ActivityIndicator color={colors.base.white} size="large" />
         )}
       </Pressable>
-    </Wrapper>
+    </View>
   );
 }
