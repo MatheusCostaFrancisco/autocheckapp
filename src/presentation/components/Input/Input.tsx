@@ -127,7 +127,7 @@ export const Input = forwardRef(
           <Input
             {...rest}
             value={value}
-            placeholder={placeHolder}
+            placeholder={placeholder}
             autoCapitalize="none"
             onChangeText={handleChangeText}
             multiline={multiLine}
@@ -150,7 +150,7 @@ export const Input = forwardRef(
             <Input
               {...rest}
               value={value}
-              placeholder={placeHolder}
+              placeholder={placeholder}
               autoCapitalize="none"
               onChangeText={handleChangeText}
               multiline={multiLine}

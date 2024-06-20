@@ -5,6 +5,7 @@ import {Card} from './Card/Card';
 import {Icon, IconProps} from './Icon/Icon';
 import {IconButton} from './IconButton/IconButton';
 import {IconList} from './IconList/IconList';
+import {Input} from './Input/Input';
 import {H1, H2, H3, H4, H5, H6, H7} from './Text/Text';
 
 export {
@@ -16,6 +17,7 @@ export {
   IconProps,
   IconButton,
   IconList,
+  Input,
   H1,
   H2,
   H3,
